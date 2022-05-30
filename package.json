@@ -1,0 +1,43 @@
+{
+  "name": "pnpm-deduplicate",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Deduplication tool for pnpm-lock.yaml files",
+  "type": "commonjs",
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "pnpm-deduplicate": "bin/pnpm-deduplicate.cjs"
+  },
+  "scripts": {
+    "build": "pnpm build:esbuild && pnpm build:tsc",
+    "build:esbuild": "node esbuild.mjs",
+    "build:tsc": "tsc --build"
+  },
+  "author": "ocavue <ocavue@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "README.md",
+    "dist/*",
+    "bin/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^17.0.36",
+    "esbuild": "^0.14.42",
+    "esbuild-node-externals": "^1.4.1",
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "@pnpm/lockfile-file": "^5.0.3",
+    "@pnpm/lockfile-utils": "^4.0.3",
+    "@pnpm/lockfile-walker": "^5.0.3",
+    "@pnpm/logger": "^4.0.0",
+    "@pnpm/manifest-utils": "^3.0.2",
+    "@pnpm/read-project-manifest": "^3.0.2",
+    "@pnpm/types": "^8.0.1",
+    "commander": "^9.3.0",
+    "dependency-path": "^9.1.2",
+    "path-exists": "^5.0.0",
+    "semver": "^7.3.7"
+  }
+}
