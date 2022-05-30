@@ -1,7 +1,6 @@
 {
   "name": "pnpm-deduplicate",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Deduplication tool for pnpm-lock.yaml files",
   "type": "commonjs",
   "main": "dist/index.cjs",
