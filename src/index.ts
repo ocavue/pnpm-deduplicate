@@ -157,8 +157,13 @@ async function writeOverride(root: string, duplicatePackages: Package[]) {
 }
 
 function runPnpmInstall(root: string) {
-  // Use `--prefer-offline` here to increase the install speed.
-  execSync("pnpm install --prefer-offline", { stdio: "inherit", cwd: root });
+  // Use `--prefer-offline` and `--ignore-scripts` here to increase the install
+  // speed. Use `--no-frozen-lockfile` to make sure the lockfile can be updated
+  // even in the CI environment.
+  execSync(
+    "pnpm install --prefer-offline --ignore-scripts --no-frozen-lockfile",
+    { stdio: "inherit", cwd: root }
+  );
 }
 
 export async function fixDuplicates(root: string) {
