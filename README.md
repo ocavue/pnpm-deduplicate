@@ -38,7 +38,7 @@ Package "@babel/generator" wants ^7.7.2 and could get 7.18.2, but got 7.18.0
 Package "@babel/generator" wants ^7.18.0 and could get 7.18.2, but got 7.18.0
 ```
 
-## Solution other package managers
+## Solutions for other package managers
 
 For Yarn v1, you can use [`yarn-deduplicate`](https://github.com/atlassian/yarn-deduplicate/).
 
