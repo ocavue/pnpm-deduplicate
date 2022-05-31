@@ -70,7 +70,7 @@ async function walkLockfile(
 async function getAllDependencies(root: string): Promise<Package[]> {
   const lockfile = await readWantedLockfile(root, { ignoreIncompatible: true });
   if (!lockfile) {
-    throw new Error(`failed to found pnpm-lock.yaml in ${root}`);
+    throw new Error(`failed to find pnpm-lock.yaml in ${root}`);
   }
   const packageMap: PackageMap = {};
   await Promise.all(
