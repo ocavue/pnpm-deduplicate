@@ -1,11 +1,19 @@
 import { program } from "commander";
 import { fixDuplicates, listDuplicates } from "./index.js";
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { join } from "path";
 
-const version = require("../package.json").version;
+function readVersion() {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = fileURLToPath(new URL(".", import.meta.url));
+  const pkgPath = join(__dirname, "../package.json");
+  return JSON.parse(readFileSync(pkgPath, "utf8")).version;
+}
 
 export async function runCli() {
   program
-    .version(version)
+    .version(readVersion())
     .usage("[options]")
     .option(
       "-l, --list",

@@ -7,11 +7,11 @@ import { nodeExternalsPlugin } from "esbuild-node-externals";
 async function main() {
   await build({
     entryPoints: ["./src/cli.ts", "./src/index.ts"],
-    outExtension: { ".js": ".cjs" },
+    outExtension: { ".js": ".mjs" },
     outdir: path.join("./dist"),
     bundle: true,
     platform: "node",
-    format: "cjs",
+    format: "esm",
     target: "node14",
     sourcemap: false,
     minify: false,

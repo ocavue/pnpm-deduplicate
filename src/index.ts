@@ -1,17 +1,23 @@
-import { Dependencies, readWantedLockfile } from "@pnpm/lockfile-file";
-import { nameVerFromPkgSnapshot } from "@pnpm/lockfile-utils";
-import type { LockfileWalkerStep } from "@pnpm/lockfile-walker";
-import lockfileWalker from "@pnpm/lockfile-walker";
-import { getAllDependenciesFromManifest } from "@pnpm/manifest-utils";
-import readProjectManifest, {
-  safeReadProjectManifestOnly,
-} from "@pnpm/read-project-manifest";
 import type { ProjectManifest } from "@pnpm/types";
 import { execSync } from "child_process";
 import * as dp from "dependency-path";
 import fs from "fs/promises";
 import path from "path";
 import semver from "semver";
+import {
+  readWantedLockfile,
+  type Dependencies,
+} from "./commonjs-libs/pnpm-lock-files";
+import { nameVerFromPkgSnapshot } from "./commonjs-libs/pnpm-lock-utils";
+import {
+  lockfileWalker,
+  type LockfileWalkerStep,
+} from "./commonjs-libs/pnpm-lockfile-walker";
+import { getAllDependenciesFromManifest } from "./commonjs-libs/pnpm-manifest-utils";
+import {
+  readProjectManifest,
+  safeReadProjectManifestOnly,
+} from "./commonjs-libs/pnpm-read-project-manifest";
 
 type Package = {
   name: string;

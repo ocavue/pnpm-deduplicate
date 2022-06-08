@@ -2,11 +2,11 @@
   "name": "pnpm-deduplicate",
   "version": "0.1.2",
   "description": "Deduplication tool for pnpm-lock.yaml files",
-  "type": "commonjs",
-  "main": "dist/index.cjs",
+  "type": "module",
+  "main": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "bin": {
-    "pnpm-deduplicate": "bin/pnpm-deduplicate.cjs"
+    "pnpm-deduplicate": "bin/pnpm-deduplicate.mjs"
   },
   "scripts": {
     "build": "pnpm build:esbuild && pnpm build:tsc",
