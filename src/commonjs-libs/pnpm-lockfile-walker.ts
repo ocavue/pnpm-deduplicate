@@ -4,5 +4,5 @@ const lib: typeof import("@pnpm/lockfile-walker") = _require(
   "@pnpm/lockfile-walker"
 );
 
-export const lockfileWalker = lib.default;
+export const { default: lockfileWalker } = lib;
 export type { LockfileWalkerStep } from "@pnpm/lockfile-walker";

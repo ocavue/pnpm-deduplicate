@@ -4,6 +4,6 @@ const lib: typeof import("@pnpm/lockfile-file") = _require(
   "@pnpm/lockfile-file"
 );
 
-export const readWantedLockfile = lib.readWantedLockfile;
+export const { readWantedLockfile } = lib;
 
 export type { Dependencies } from "@pnpm/lockfile-file";
