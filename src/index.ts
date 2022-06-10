@@ -113,7 +113,9 @@ function getDuplicates(packages: Package[]): Package[] {
     }
   }
 
-  return packages.filter((pkg) => pkg.bestVersion != pkg.version);
+  return packages.filter(
+    (pkg) => pkg.bestVersion && pkg.bestVersion !== pkg.version
+  );
 }
 
 async function findDuplicatePackages(root: string) {
