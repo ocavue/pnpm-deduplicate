@@ -1,6 +1,6 @@
 {
   "name": "pnpm-deduplicate",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Deduplication tool for pnpm-lock.yaml files",
   "type": "module",
   "main": "dist/index.mjs",
