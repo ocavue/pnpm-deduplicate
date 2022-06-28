@@ -177,11 +177,21 @@ function runPnpmInstall(root: string) {
   );
 }
 
+function logDuplicatePackages(duplicatePackages: Package[]) {
+  for (let { name, version, bestVersion, specifier } of duplicatePackages) {
+    console.log(
+      `Package "${name}" wants ${specifier} and could get ${bestVersion}, but got ${version}`
+    );
+  }
+}
+
 export async function fixDuplicates(root: string) {
   // Run `pnpm install` to make sure dependencies are downloaded
   runPnpmInstall(root);
   // Find duplicate dependencies
   const duplicatePackages = await findDuplicatePackages(root);
+  // Print duplicate dependencies to console
+  logDuplicatePackages(duplicatePackages);
   // Write `override` into the root package.json
   const restoreManifest = await writeOverride(root, duplicatePackages);
   // Run `pnpm install` and let pnpm remove unnecessary dependencies
@@ -195,10 +205,8 @@ export async function fixDuplicates(root: string) {
 export async function listDuplicates(root: string) {
   // Run `pnpm install` to make sure dependencies are downloaded
   runPnpmInstall(root);
+  // Find duplicate dependencies
   const duplicatePackages = await findDuplicatePackages(root);
-  for (let { name, version, bestVersion, specifier } of duplicatePackages) {
-    console.log(
-      `Package "${name}" wants ${specifier} and could get ${bestVersion}, but got ${version}`
-    );
-  }
+  // Print duplicate dependencies to console
+  logDuplicatePackages(duplicatePackages);
 }
