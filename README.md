@@ -46,6 +46,10 @@ For Yarn v2 or greater version, you can use the built-in [`yarn dedupe`](https:/
 
 For NPM, you can use the built-in [`npm dedupe`](https://docs.npmjs.com/cli/v8/commands/npm-dedupe) command.
 
+For PNPM, use this tool!
+
+Also, removing `node_modules` folder as well as the lock file (e.g. `yarn.lock`, `package-lock.json` or `pnpm-lock.yaml`) is another option.
+
 ## License
 
 MIT
