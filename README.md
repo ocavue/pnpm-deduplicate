@@ -2,7 +2,7 @@
 
 Remove duplicate dependencies from `pnpm-lock.yaml`.
 
-This project is simple and not have many features. I see it as a temporary solution until we have built-in `pnpm deduple` command. Pull requests are welcome!
+This project is simple and not have many features. I see it as a temporary solution until we have official built-in `pnpm deduple` command. Pull requests are welcome!
 
 ## Install
 
@@ -48,7 +48,7 @@ For NPM, you can use the built-in [`npm dedupe`](https://docs.npmjs.com/cli/v8/c
 
 For PNPM, use this tool!
 
-Also, removing `node_modules` folder as well as the lock file (e.g. `yarn.lock`, `package-lock.json` or `pnpm-lock.yaml`) is another option.
+Also, removing `node_modules` folder as well as the lock file (i.e. `yarn.lock`, `package-lock.json` or `pnpm-lock.yaml`) is another option. This will update all your dependencies to the latest version that matches the version range in your `package.json`, which could break your project. 
 
 ## License
 
