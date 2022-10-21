@@ -8,6 +8,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./dist",
+    "strict": true,
   },
   "include": ["./src/**/*"]
 }

@@ -38,6 +38,9 @@ Package "@babel/generator" wants ^7.7.2 and could get 7.18.2, but got 7.18.0
 Package "@babel/generator" wants ^7.18.0 and could get 7.18.2, but got 7.18.0
 ```
 
+This command will return a non-zero exit code if there are duplicates. You can
+use it in CI to check if there are duplicates.
+
 ## Solutions for other package managers
 
 For Yarn v1, you can use [`yarn-deduplicate`](https://github.com/atlassian/yarn-deduplicate/).
@@ -48,7 +51,7 @@ For NPM, you can use the built-in [`npm dedupe`](https://docs.npmjs.com/cli/v8/c
 
 For PNPM, use this tool!
 
-Also, removing `node_modules` folder as well as the lock file (i.e. `yarn.lock`, `package-lock.json` or `pnpm-lock.yaml`) is another option. This will update all your dependencies to the latest version that matches the version range in your `package.json`, which could break your project. 
+Also, removing `node_modules` folder as well as the lock file (i.e. `yarn.lock`, `package-lock.json` or `pnpm-lock.yaml`) is another option. This will update all your dependencies to the latest version that matches the version range in your `package.json`, which could break your project.
 
 ## License
 

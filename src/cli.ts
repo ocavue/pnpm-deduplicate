@@ -27,7 +27,9 @@ export async function runCli() {
   const root = process.cwd();
 
   if (list) {
-    await listDuplicates(root);
+    if (await listDuplicates(root)) {
+      process.exit(1);
+    }
   } else {
     await fixDuplicates(root);
   }

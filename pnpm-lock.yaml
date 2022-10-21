@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
   '@pnpm/lockfile-file': ^5.3.2
@@ -9,6 +9,7 @@ specifiers:
   '@pnpm/read-project-manifest': ^3.0.9
   '@pnpm/types': ^8.5.0
   '@types/node': ^18.6.3
+  '@types/semver': ^7.3.12
   commander: ^9.4.0
   dependency-path: ^9.2.4
   esbuild: ^0.14.53
@@ -32,6 +33,7 @@ dependencies:
 
 devDependencies:
   '@types/node': 18.6.3
+  '@types/semver': 7.3.12
   esbuild: 0.14.53
   esbuild-node-externals: 1.4.1_esbuild@0.14.53
   typescript: 4.7.4
@@ -64,6 +66,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [loong64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -240,6 +243,10 @@ packages:
     resolution: {integrity: sha512-6qKpDtoaYLM+5+AFChLhHermMQxc3TOEFIDzrZLPRGHPrLEwqFkkT5Kx3ju05g6X7uDPazz3jHbKPX0KzCjntg==}
     dev: true
 
+  /@types/semver/7.3.12:
+    resolution: {integrity: sha512-WwA1MW0++RfXmCr12xeYOOC5baSC9mSb0ZqCquFzKhcoF4TvHu5MKOuXsncgZcpVFhB1pXd5hZmM0ryAoCp12A==}
+    dev: true
+
   /@zkochan/js-yaml/0.0.6:
     resolution: {integrity: sha512-nzvgl3VfhcELQ8LyVrYOru+UtAy1nrygk2+AGbTm8a5YcO6o8lSjAT+pfg3vJWxIoZKOUhrK6UU7xW/+00kQrg==}
     hasBin: true
@@ -366,6 +373,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [android]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -374,6 +382,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -382,6 +391,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -390,6 +400,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -398,6 +409,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [freebsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -406,6 +418,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -414,6 +427,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -422,6 +436,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -430,6 +445,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -438,6 +454,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -446,6 +463,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [mips64el]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -454,6 +472,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -462,6 +481,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [riscv64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -470,6 +490,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -478,6 +499,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -496,6 +518,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -504,6 +527,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [sunos]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -512,6 +536,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -520,6 +545,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -528,6 +554,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 

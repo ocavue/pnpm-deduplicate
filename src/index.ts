@@ -137,7 +137,9 @@ async function findDuplicatePackages(root: string) {
 function buildOverrides(packages: Package[]) {
   const overrides: { [packageName: string]: string } = {};
   for (let pkg of packages) {
-    overrides[`${pkg.name}@${pkg.specifier}`] = pkg.bestVersion;
+    if (pkg.bestVersion) {
+      overrides[`${pkg.name}@${pkg.specifier}`] = pkg.bestVersion;
+    }
   }
   return overrides;
 }
@@ -219,4 +221,5 @@ export async function listDuplicates(root: string) {
   const duplicatePackages = await findDuplicatePackages(root);
   // Print duplicate dependencies to console
   logDuplicatePackages(duplicatePackages);
+  return duplicatePackages.length ? duplicatePackages : null;
 }
