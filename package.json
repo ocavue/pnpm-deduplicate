@@ -3,6 +3,10 @@
   "type": "module",
   "version": "0.4.1",
   "packageManager": "pnpm@7.18.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ocavue/pnpm-deduplicate.git"
+  },
   "description": "Deduplication tool for pnpm-lock.yaml files",
   "author": "ocavue <ocavue@gmail.com>",
   "license": "MIT",
