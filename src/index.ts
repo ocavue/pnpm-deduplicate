@@ -104,8 +104,8 @@ function getDuplicates(packages: Package[]): Package[] {
     return semver.rcompare(versionA, versionB);
   });
 
-  for (let pkg of packages) {
-    for (let candidateVersion of candidateVersions) {
+  for (const pkg of packages) {
+    for (const candidateVersion of candidateVersions) {
       if (semver.satisfies(candidateVersion, pkg.specifier)) {
         pkg.bestVersion = candidateVersion;
         break;
@@ -121,7 +121,7 @@ function getDuplicates(packages: Package[]): Package[] {
 async function findDuplicatePackages(root: string) {
   const packages = await getAllDependencies(root);
   const packageGroups: Record<string, Package[]> = {};
-  for (let pkg of packages) {
+  for (const pkg of packages) {
     if (!packageGroups[pkg.name]) {
       packageGroups[pkg.name] = [];
     }
@@ -136,7 +136,7 @@ async function findDuplicatePackages(root: string) {
 
 function buildOverrides(packages: Package[]) {
   const overrides: { [packageName: string]: string } = {};
-  for (let pkg of packages) {
+  for (const pkg of packages) {
     if (pkg.bestVersion) {
       overrides[`${pkg.name}@${pkg.specifier}`] = pkg.bestVersion;
     }
@@ -185,7 +185,7 @@ function logDuplicatePackages(duplicatePackages: Package[]) {
     return;
   }
 
-  for (let { name, version, bestVersion, specifier } of duplicatePackages) {
+  for (const { name, version, bestVersion, specifier } of duplicatePackages) {
     console.log(
       `Package "${name}" wants ${specifier} and could get ${bestVersion}, but got ${version}`
     );
