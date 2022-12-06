@@ -2,6 +2,7 @@
   "name": "pnpm-deduplicate",
   "type": "module",
   "version": "0.4.0",
+  "packageManager": "pnpm@7.18.1",
   "description": "Deduplication tool for pnpm-lock.yaml files",
   "author": "ocavue <ocavue@gmail.com>",
   "license": "MIT",
