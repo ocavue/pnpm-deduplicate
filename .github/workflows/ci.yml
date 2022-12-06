@@ -42,5 +42,11 @@ jobs:
       - name: Run --help
         run: ./bin/pnpm-deduplicate.mjs --help
 
+      - name: Run --version
+        run: ./bin/pnpm-deduplicate.mjs --version
+
       - name: Run --list
         run: ./bin/pnpm-deduplicate.mjs --list
+
+      - name: Run main
+        run: ./bin/pnpm-deduplicate.mjs
