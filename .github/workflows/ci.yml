@@ -39,5 +39,8 @@ jobs:
       - name: Build
         run: nr build
 
-      - name: Run
+      - name: Run --help
         run: ./bin/pnpm-deduplicate.mjs --help
+
+      - name: Run --list
+        run: ./bin/pnpm-deduplicate.mjs --list
