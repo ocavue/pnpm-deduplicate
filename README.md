@@ -4,6 +4,8 @@ Remove duplicate dependencies from `pnpm-lock.yaml`.
 
 This project is simple and not have many features. I see it as a temporary solution until we have official built-in `pnpm deduple` command. Pull requests are welcome!
 
+**Support this project by giving it a :star: on GitHub.**
+
 ## Install
 
 ```
