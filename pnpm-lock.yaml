@@ -16,6 +16,7 @@ specifiers:
   esbuild: ^0.15.18
   esbuild-node-externals: ^1.5.0
   eslint: ^8.29.0
+  json5: '^2.2.1'
   path-exists: ^5.0.0
   prettier: ^2.8.0
   semver: ^7.3.8
@@ -31,6 +32,7 @@ dependencies:
   '@pnpm/types': 8.9.0
   commander: 9.4.1
   dependency-path: 9.2.8
+  json5: 2.2.1
   path-exists: 5.0.0
   semver: 7.3.8
 

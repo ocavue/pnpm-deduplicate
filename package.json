@@ -31,6 +31,7 @@
     "@pnpm/read-project-manifest": "^4.1.1",
     "@pnpm/types": "^8.9.0",
     "commander": "^9.4.1",
+    "json5": "^2.2.1",
     "dependency-path": "^9.2.8",
     "path-exists": "^5.0.0",
     "semver": "^7.3.8"
