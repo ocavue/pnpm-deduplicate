@@ -12,6 +12,7 @@ import * as dp from "dependency-path";
 import fs from "fs/promises";
 import path from "path";
 import semver from "semver";
+import { readConfig } from "./config";
 
 type Package = {
   name: string;
@@ -173,33 +174,47 @@ function runPnpmInstall(root: string) {
   );
 }
 
-function logDuplicatePackages(duplicatePackages: Package[]) {
+function logDuplicatePackages(
+  duplicatePackages: Package[],
+  isIgnored: (duplicate: Package) => boolean
+) {
   if (duplicatePackages.length === 0) {
     console.log("No duplicate packages found. You are good to go!");
     return;
   }
 
-  for (const { name, version, bestVersion, specifier } of duplicatePackages) {
+  for (const duplicatePackage of duplicatePackages) {
+    const { name, version, bestVersion, specifier } = duplicatePackage;
     console.log(
-      `Package "${name}" wants ${specifier} and could get ${bestVersion}, but got ${version}`
+      `Package "${name}" wants ${specifier} and could get ${bestVersion}, but got ${version}.${
+        isIgnored(duplicatePackage) ? " Ignoring due to config." : ""
+      }`
     );
   }
 }
 
 export async function fixDuplicates(root: string) {
+  const config = await readConfig(root);
+  const ignoredSet = new Set(config?.ignored ?? []);
+  const isIgnored = (duplicate: Package) => ignoredSet.has(duplicate.name);
+
   // Run `pnpm install` to make sure dependencies are downloaded
   runPnpmInstall(root);
   // Find duplicate dependencies
   const duplicatePackages = await findDuplicatePackages(root);
   // Print duplicate dependencies to console
-  logDuplicatePackages(duplicatePackages);
+  logDuplicatePackages(duplicatePackages, isIgnored);
 
-  if (duplicatePackages.length === 0) {
+  const importantDuplicates = duplicatePackages.filter(
+    (duplicate) => !isIgnored(duplicate)
+  );
+
+  if (importantDuplicates.length === 0) {
     return;
   }
 
   // Write `override` into the root package.json
-  const restoreManifest = await writeOverride(root, duplicatePackages);
+  const restoreManifest = await writeOverride(root, importantDuplicates);
   // Run `pnpm install` and let pnpm remove unnecessary dependencies
   runPnpmInstall(root);
   // Restore the original package.json
@@ -209,11 +224,20 @@ export async function fixDuplicates(root: string) {
 }
 
 export async function listDuplicates(root: string) {
+  const config = await readConfig(root);
+  const ignoredSet = new Set(config?.ignored ?? []);
+  const isIgnored = (duplicate: Package) => ignoredSet.has(duplicate.name);
+
   // Run `pnpm install` to make sure dependencies are downloaded
   runPnpmInstall(root);
   // Find duplicate dependencies
   const duplicatePackages = await findDuplicatePackages(root);
   // Print duplicate dependencies to console
-  logDuplicatePackages(duplicatePackages);
-  return duplicatePackages.length ? duplicatePackages : null;
+  logDuplicatePackages(duplicatePackages, isIgnored);
+
+  const importantDuplicates = duplicatePackages.filter(
+    (duplicate) => !isIgnored(duplicate)
+  );
+
+  return importantDuplicates.length ? importantDuplicates : null;
 }
