@@ -1,3 +1,5 @@
+**🎉 The official built-in `pnpm dedupe` command is added since `pnpm` [v7.26.0](https://github.com/pnpm/pnpm/releases/tag/v7.26.0), so this project is retired. 🎉**
+
 # pnpm-deduplicate
 
 Remove duplicate dependencies from `pnpm-lock.yaml`.
